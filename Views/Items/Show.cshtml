@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hello friend!</title>
+  </head>
+  <body>
+    <h1>@Model.GetName(), Your Pet Tamagotchi</h1>
+
+    <p>Current Food is @Model.GetFood()</p>
+    <form action="/items/food/@Model.GetId()" method="post">
+      <button type="submit">Feed</button>
+    </form>
+    <p>Current Sleep is @Model.GetSleep()</p>
+    <form action="/items/sleep/@Model.GetId()" method="post">
+      <button type="submit">Sleep</button>
+    </form>
+    <p>Current Happiness is @Model.GetHappiness()</p>
+    <form action="/items/happiness/@Model.GetId()" method="post">
+      <button type="submit">Play</button>
+    </form>
+    <br>
+    <br>
+    <form action="/items" method="get">
+      <button type="submit">Back</button>
+    </form>
+
+  </body>
+</html>

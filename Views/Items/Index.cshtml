@@ -1,0 +1,41 @@
+@using Tamagotchi.Models;
+
+<h1>Your Tamagotchis:</h1>
+<ul>
+
+@if (Model.Count == 0)
+{
+  <p>You have no Tamagotchis!</p>
+}
+@if(Model.Count != 0)
+{
+  @foreach (Item item in Model)
+  {
+      @if (item.GetLife() == true)
+      {
+        <li><a href='/items/@item.GetId()'>@item.GetName()---Food: @item.GetFood() Happiness: @item.GetHappiness() Sleep: @item.GetSleep()</a></li>
+      }
+  }
+}
+
+</ul>
+<a href="/items/new">Adopt a New Tamagotchi.</a>
+<form action="/items/delete" method="post">
+  <button type="submit" name="button">Clear All Items</button>
+</form>
+
+
+<form action="/items/time" method="post">
+  <button type="submit" name="button">Advance the ravages of time</button>
+</form>
+
+<h1>The Tamagotchi Graveyard:</h1>
+<ul>
+@foreach (Item item in Model)
+{
+    @if (item.GetLife() == false)
+    {
+        <li>@item.GetName()</li>  
+    }
+}
+</ul>

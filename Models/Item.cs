@@ -99,6 +99,5 @@ namespace Tamagotchi.Models
         {
             return _instances[searchId - 1];
         }
-
     }
 }
